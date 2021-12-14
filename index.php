@@ -39,6 +39,8 @@ $_SESSION['aptno']=$result['AptNumber'];
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700,700i,900,900i" rel="stylesheet">
 
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+
     <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="css/animate.css">
     
@@ -57,6 +59,9 @@ $_SESSION['aptno']=$result['AptNumber'];
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
+
+	
+
   </head>
   <body>
 	  <?php include_once('includes/header.php');?>
