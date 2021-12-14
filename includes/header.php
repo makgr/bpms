@@ -14,7 +14,7 @@
            
             <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
             
-            <li class="nav-item"><a href="admin/index.php" class="nav-link">Admin</a></li>
+            <!-- <li class="nav-item"><a href="admin/index.php" class="nav-link">Admin</a></li> -->
           </ul>
         </div>
       </div>
