@@ -10,19 +10,38 @@ if(isset($_POST['submit']))
   {
     $sername=$_POST['sername'];
     $cost=$_POST['cost'];
-   
+    if ($_FILES['service_image']) {
+		$permited = array('jpg', 'jpeg', 'png', 'gif');
+            $file_name = $_FILES['service_image']['name'];
+            $file_size = $_FILES['service_image']['size'];
+            $file_temp = $_FILES['service_image']['tmp_name'];
+
+            $div = explode('.', $file_name);
+
+            $file_ext = strtolower(end($div));
+
+            $unique_image = substr(md5(time()), 0, 10) . '.' . $file_ext;
+
+            $uploaded_image = "images/" . $unique_image;
+
+            $uploaded_image1 = $unique_image;
+
+			move_uploaded_file($file_temp, $uploaded_image);
+
+			$query=mysqli_query($con, "insert into  tblservices(ServiceName,Cost,service_image) value('$sername','$cost','$uploaded_image1')");
+			if ($query) {
+				echo "<script>alert('Service has been added.');</script>"; 
+					echo "<script>window.location.href = 'add-services.php'</script>";   
+			    $msg="";
+			}
+			else{
+				  echo "<script>alert('Something Went Wrong. Please try again.');</script>";  	
+				}
+
+	}
 
      
-    $query=mysqli_query($con, "insert into  tblservices(ServiceName,Cost) value('$sername','$cost')");
-    if ($query) {
-    	echo "<script>alert('Service has been added.');</script>"; 
-    		echo "<script>window.location.href = 'add-services.php'</script>";   
-    $msg="";
-  }
-  else
-    {
-    echo "<script>alert('Something Went Wrong. Please try again.');</script>";  	
-    }
+    
 
   
 }
@@ -78,19 +97,25 @@ if(isset($_POST['submit']))
 							<h4>Parlour Services:</h4>
 						</div>
 						<div class="form-body">
-							<form method="post">
+							<form method="post" enctype="multipart/form-data">
 								<p style="font-size:16px; color:red" align="center"> <?php if($msg){
-    echo $msg;
-  }  ?> </p>
+										echo $msg;
+									}  ?> </p>
 
-  
-							 <div class="form-group"> <label for="exampleInputEmail1">Service Name</label> <input type="text" class="form-control" id="sername" name="sername" placeholder="Service Name" value="" required="true"> </div> <div class="form-group"> <label for="exampleInputPassword1">Cost</label> <input type="text" id="cost" name="cost" class="form-control" placeholder="Cost" value="" required="true"> </div>
+							 <div class="form-group"> <label for="exampleInputEmail1">Service Name</label> 
+							 <input type="text" class="form-control" id="sername" name="sername" placeholder="Service Name" value="" required="true"> 
+							</div> 
+							<div class="form-group"> <label for="exampleInputPassword1">Cost</label> 
+							<input type="text" id="cost" name="cost" class="form-control" placeholder="Cost" value="" required="true"> 
+						    </div>
+							<div class="form-group"> <label for="service_image">Service Image</label> 
+							  <input type="file" id="service_image" name="service_image" class="form-control" required="true"> 
+						    </div>
 							
-							  <button type="submit" name="submit" class="btn btn-default">Add</button> </form> 
+							  <button type="submit" name="submit" class="btn btn-default">Add</button>
+						 </form> 
 						</div>
-						
 					</div>
-				
 				
 			</div>
 		</div>
