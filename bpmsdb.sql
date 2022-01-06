@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2021 at 07:13 PM
+-- Generation Time: Jan 06, 2022 at 07:43 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.25
 
@@ -42,7 +42,7 @@ CREATE TABLE `tbladmin` (
 --
 
 INSERT INTO `tbladmin` (`ID`, `AdminName`, `UserName`, `MobileNumber`, `Email`, `Password`, `AdminRegdate`) VALUES
-(1, 'test', 'admin', 7898799798, 'tester1@gmail.com', 'f925916e2754e5e03f75dd58a5733251', '2019-07-25 06:21:50');
+(1, 'test', 'admin', 7898799798, 'tester1@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '2019-07-25 06:21:50');
 
 -- --------------------------------------------------------
 
@@ -178,6 +178,7 @@ CREATE TABLE `tblservices` (
   `ID` int(10) NOT NULL,
   `ServiceName` varchar(200) DEFAULT NULL,
   `Cost` int(10) DEFAULT NULL,
+  `service_image` varchar(255) NOT NULL,
   `CreationDate` timestamp NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -185,27 +186,23 @@ CREATE TABLE `tblservices` (
 -- Dumping data for table `tblservices`
 --
 
-INSERT INTO `tblservices` (`ID`, `ServiceName`, `Cost`, `CreationDate`) VALUES
-(1, 'O3 Facial', 1200, '2019-07-25 11:22:38'),
-(2, 'Fruit Facial', 500, '2019-07-25 11:22:53'),
-(3, 'Charcol Facial', 1000, '2019-07-25 11:23:10'),
-(4, 'Deluxe Menicure', 500, '2019-07-25 11:23:34'),
-(5, 'Deluxe Pedicure', 600, '2019-07-25 11:23:47'),
-(6, 'Normal Menicure', 300, '2019-07-25 11:24:01'),
-(7, 'Normal Pedicure', 400, '2019-07-25 11:24:19'),
-(8, 'U-Shape Hair Cut', 250, '2019-07-25 11:24:38'),
-(9, 'Layer Haircut', 550, '2019-07-25 11:24:53'),
-(10, 'Rebonding', 3999, '2019-07-25 11:25:08'),
-(11, 'Loreal Hair Color(Full)', 1200, '2019-07-25 11:25:35'),
-(12, 'Body Spa', 1500, '2019-08-19 13:36:27'),
-(14, 'Test', 100, '2019-08-21 15:45:50'),
-(15, 'ABC', 200, '2019-08-21 16:23:23'),
-(16, '', 0, '2021-12-13 17:48:58'),
-(17, '', 0, '2021-12-13 17:49:16'),
-(18, '', 0, '2021-12-13 17:50:01'),
-(19, 'test ser', 120, '2021-12-13 18:02:30'),
-(20, 'test ser1', 121, '2021-12-13 18:03:15'),
-(21, 'test ser2', 122, '2021-12-13 18:03:42');
+INSERT INTO `tblservices` (`ID`, `ServiceName`, `Cost`, `service_image`, `CreationDate`) VALUES
+(1, 'O3 Facial', 1200, '', '2019-07-25 11:22:38'),
+(2, 'Fruit Facial', 500, '', '2019-07-25 11:22:53'),
+(3, 'Charcol Facial', 1000, '', '2019-07-25 11:23:10'),
+(4, 'Deluxe Menicure', 500, '', '2019-07-25 11:23:34'),
+(5, 'Deluxe Pedicure', 600, '', '2019-07-25 11:23:47'),
+(6, 'Normal Menicure', 300, '', '2019-07-25 11:24:01'),
+(7, 'Normal Pedicure', 400, '', '2019-07-25 11:24:19'),
+(8, 'U-Shape Hair Cut', 250, '', '2019-07-25 11:24:38'),
+(9, 'Layer Haircut', 550, '', '2019-07-25 11:24:53'),
+(10, 'Rebonding', 3999, '', '2019-07-25 11:25:08'),
+(11, 'Loreal Hair Color(Full)', 1200, '', '2019-07-25 11:25:35'),
+(12, 'Body Spa', 1500, '', '2019-08-19 13:36:27'),
+(14, 'Test', 100, '', '2019-08-21 15:45:50'),
+(15, 'ABC', 200, '', '2019-08-21 16:23:23'),
+(22, 'test ser updated', 122, '', '2021-12-14 05:32:29'),
+(24, 'test o3 facial', 1000, '', '2021-12-25 05:16:22');
 
 --
 -- Indexes for dumped tables
@@ -286,7 +283,7 @@ ALTER TABLE `tblpage`
 -- AUTO_INCREMENT for table `tblservices`
 --
 ALTER TABLE `tblservices`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
