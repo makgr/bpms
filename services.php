@@ -61,19 +61,36 @@ include('includes/dbconnection.php');
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia</p>
           </div>
         </div>
-            <table class="table table-bordered"> <thead> <tr> <th>#</th> <th>Service Name</th> <th>Service Price</th> </tr> </thead> <tbody>
-<?php
-$ret=mysqli_query($con,"select *from  tblservices");
-$cnt=1;
-while ($row=mysqli_fetch_array($ret)) {
+            <table class="table table-bordered"> 
+              <thead> 
+                <tr> 
+                  <th>#</th> 
+                  <th>Image</th>
+                  <th>Service Name</th> 
+                  <th>Service Price</th> 
+                </tr> 
+              </thead> 
+              <tbody>
+			<?php
+			$ret=mysqli_query($con,"select *from  tblservices");
+			$cnt=1;
+			while ($row=mysqli_fetch_array($ret)) {
 
-?>
+			?>
 
-             <tr> <th scope="row"><?php echo $cnt;?></th> <td><?php  echo $row['ServiceName'];?></td> <td><?php  echo $row['Cost'];?></td> </tr>   <?php 
-$cnt=$cnt+1;
-}?></tbody> </table> 
-			</div>
-		</section>
+             <tr> 
+			 <th scope="row"><?php echo $cnt;?></th>
+			 <th><img src="admin/images/<?php echo $row['service_image'];?>" height="70" width="70"></th>
+			 <td><?php  echo $row['ServiceName'];?></td> 
+			 <td><?php  echo $row['Cost'];?></td> 
+			 </tr>   
+			 <?php 
+			$cnt=$cnt+1;
+			}?>
+		</tbody> 
+		</table> 
+				</div>
+			</section>
 
     <?php include_once('includes/footer.php');?>
     
